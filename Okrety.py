@@ -24,7 +24,7 @@ class Okrety_int:
                 if(j == 9):
                     print('|')
 
-class Player:
+class Okrety_player:
     def __init__(self):
         self.game_field = [[' 0', ' 1', ' 2', ' 3', ' 4', ' 5', ' 6', ' 7', ' 8', ' 9'],
                            ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19'],
@@ -640,8 +640,8 @@ class Okrety_gra:
 
     def Play(self):
         os.system('cls')
-        player1 = Player()        
-        player2 = Player()
+        player1 = Okrety_player()        
+        player2 = Okrety_player()
 
         n_player1_hits = 0
         n_player2_hits = 0
