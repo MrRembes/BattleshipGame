@@ -286,7 +286,7 @@ class Okrety_int:
                         self.game_field[n_dozens + 1][n_unity + ship_size] = ' .'
 
     # Ustawienie początkowe zawodnika
-    def ustawienie(self):
+    def setup(self):
         n_ones = 4
         n_twos = 3
         n_threes = 2
@@ -650,7 +650,7 @@ class Okrety_gra:
                 player.shoting_field[n_dozens + 1][n_unity + ship_size] = ' .'
         
 
-    def Graj(self):
+    def Play(self):
         os.system('cls')
         player1 = Okrety_int()        
         player2 = Okrety_int()
@@ -658,32 +658,21 @@ class Okrety_gra:
         n_player1_hits = 0
         n_player2_hits = 0
 
-        # player1.ustawienie()
-        # player2.ustawienie()
+        player1.setup()
+        player2.setup()
 
 
-        player1.game_field = [[' .', ' .', ' .', ' 3', ' 4', ' 5', ' .', ' .', ' .', ' x'],
-                              [' .', ' x', ' .', ' .', ' .', ' .', ' .', ' x', ' .', ' x'],
-                              [' .', ' .', ' .', ' .', ' x', ' .', ' .', ' x', ' .', ' x'],
-                              [' .', ' .', ' .', ' .', ' .', ' .', ' .', ' .', ' .', ' .'],
-                              [' x', ' x', ' .', ' .', ' .', ' .', ' .', ' .', ' x', ' .'],
-                              [' .', ' .', ' .', ' .', ' x', ' x', ' .', ' .', ' .', ' .'],
-                              ['60', '61', '62', ' .', ' .', ' .', ' .', '67', '68', '69'],
-                              ['70', '71', '72', '73', ' .', ' .', ' .', ' .', ' .', '79'],
-                              [' .', ' .', ' .', ' .', ' .', ' x', ' x', ' x', ' .', ' .'],
-                              [' x', ' x', ' x', ' x', ' .', ' .', ' .', ' .', ' .', ' x']]
+        # player1.game_field = [[' .', ' .', ' .', ' 3', ' 4', ' 5', ' .', ' .', ' .', ' x'],
+        #                       [' .', ' x', ' .', ' .', ' .', ' .', ' .', ' x', ' .', ' x'],
+        #                       [' .', ' .', ' .', ' .', ' x', ' .', ' .', ' x', ' .', ' x'],
+        #                       [' .', ' .', ' .', ' .', ' .', ' .', ' .', ' .', ' .', ' .'],
+        #                       [' x', ' x', ' .', ' .', ' .', ' .', ' .', ' .', ' x', ' .'],
+        #                       [' .', ' .', ' .', ' .', ' x', ' x', ' .', ' .', ' .', ' .'],
+        #                       ['60', '61', '62', ' .', ' .', ' .', ' .', '67', '68', '69'],
+        #                       ['70', '71', '72', '73', ' .', ' .', ' .', ' .', ' .', '79'],
+        #                       [' .', ' .', ' .', ' .', ' .', ' x', ' x', ' x', ' .', ' .'],
+        #                       [' x', ' x', ' x', ' x', ' .', ' .', ' .', ' .', ' .', ' x']]
         
-        player2.game_field = [[' .', ' .', ' .', ' 3', ' 4', ' 5', ' .', ' .', ' .', ' x'],
-                              [' .', ' x', ' .', ' .', ' .', ' .', ' .', ' x', ' .', ' x'],
-                              [' .', ' .', ' .', ' .', ' x', ' .', ' .', ' x', ' .', ' x'],
-                              [' .', ' .', ' .', ' .', ' .', ' .', ' .', ' .', ' .', ' .'],
-                              [' x', ' x', ' .', ' .', ' .', ' .', ' .', ' .', ' x', ' .'],
-                              [' .', ' .', ' .', ' .', ' x', ' x', ' .', ' .', ' .', ' .'],
-                              ['60', '61', '62', ' .', ' .', ' .', ' .', '67', '68', '69'],
-                              ['70', '71', '72', '73', ' .', ' .', ' .', ' .', ' .', '79'],
-                              [' .', ' .', ' .', ' .', ' .', ' x', ' x', ' x', ' .', ' .'],
-                              [' x', ' x', ' x', ' x', ' .', ' .', ' .', ' .', ' .', ' x']]
-
         # Dopóki liczba trafień nie wynosi 20 gra jest kontynuowana
         game_over = False
         while(not game_over):
@@ -721,10 +710,4 @@ class Okrety_gra:
 
 gra = Okrety_gra
 
-gra.Graj(gra)
-
-# Przeprowadzenie gry
-# Strzela najpierw gracz 1 jeśli trafi kontynuuje strzelanie 
-# Następnie gracz 2
-
-# Gra kończy się gdy jeden z graczy nie stracił wszystkich statków 
+gra.Play(gra)
