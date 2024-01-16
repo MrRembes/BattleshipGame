@@ -1,7 +1,30 @@
 import os
 
 class Okrety_int:
+      
+    def print_line(self):
+        print('-------------------------------')
 
+    # Wtpisanie pola do strzelania
+    def print_shoting_field(self, player):
+        for i in range(10):
+            Okrety_int.print_line(Okrety_int)
+            for j in range(10):
+                print('|'+player.shoting_field[i][j], end='')
+                if(j == 9):
+                    print('|')
+
+
+    # Wypisanie Planszy gry
+    def print_game(self, player):
+        for i in range(10):
+            Okrety_int.print_line(Okrety_int)
+            for j in range(10):
+                print('|'+player.game_field[i][j], end='')
+                if(j == 9):
+                    print('|')
+
+class Player:
     def __init__(self):
         self.game_field = [[' 0', ' 1', ' 2', ' 3', ' 4', ' 5', ' 6', ' 7', ' 8', ' 9'],
                            ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19'],
@@ -25,30 +48,7 @@ class Okrety_int:
                               ['70', '71', '72', '73', '74', '75', '76', '77', '78', '79'],
                               ['80', '81', '82', '83', '84', '85', '86', '87', '88', '89'],
                               ['90', '91', '92', '93', '94', '95', '96', '97', '98', '99']]
-                
-    def print_line(self):
-        print('-------------------------------')
-
-    # Wtpisanie pola do strzelania
-    def print_shoting_field(self):
-        for i in range(10):
-            self.print_line()
-            for j in range(10):
-                print('|'+self.shoting_field[i][j], end='')
-                if(j == 9):
-                    print('|')
-
-
-    # Wypisanie Planszy gry
-    def print_game(self):
-        for i in range(10):
-            self.print_line()
-            for j in range(10):
-                print('|'+self.game_field[i][j], end='')
-                if(j == 9):
-                    print('|')
-
-
+        
     # Ustawienie statku i blokowanie miejsc obok statków dla kolejnych statków
     def set_ship(self,ship_size,n_dozens,n_unity,b_vertical):
 
@@ -286,7 +286,7 @@ class Okrety_int:
                         self.game_field[n_dozens + 1][n_unity + ship_size] = ' .'
 
     # Ustawienie początkowe zawodnika
-    def setup(self):
+    def setup(self, player):
         n_ones = 4
         n_twos = 3
         n_threes = 2
@@ -295,7 +295,6 @@ class Okrety_int:
         while(True):
 
             # Wybór statku
-            print()
             print("Wybierz statek do Ustawienia:")
             print("1. Wielkość 1. (", n_ones,")")
             print("2. Wielkość 2. (", n_twos,")")
@@ -351,7 +350,7 @@ class Okrety_int:
                 b_vertical = int(input("Pionowo(1) / Poziomo(0): ")) != 0
 
             # Wyświetlenie pola gry
-            self.print_game()
+            Okrety_int.print_game(self,player)
 
             # Wybranie Położenia statku
             while(True): 
@@ -414,24 +413,13 @@ class Okrety_int:
                 print("Statek Ustawiony")
                 break
             if(n_places_ships == 10):
-                self.print_game()
+                Okrety_int.print_game(Okrety_int, player)
                 print("Wszystkie statki ustawione.")
                 input("Wciśnij ENTER aby potwierdzić.")
                 break
             
 class Okrety_gra:
-    def print_line(self):
-        print('-------------------------------')
 
-    # Wypisanie Planszy gry
-    def print_game(self):
-        for i in range(10):
-            self.print_line()
-            for j in range(10):
-                print('|'+self.game_shoting_field[i][j], end='')
-                if(j == 9):
-                    print('|')
-                    
     def Shot(self, player):
         while(True):
             try:
@@ -652,14 +640,23 @@ class Okrety_gra:
 
     def Play(self):
         os.system('cls')
-        player1 = Okrety_int()        
-        player2 = Okrety_int()
+        player1 = Player()        
+        player2 = Player()
 
         n_player1_hits = 0
         n_player2_hits = 0
+        
+        name_player_1 = input("Podaj imie pierwszego gracza: ")
+        name_player_2 = input("Podaj imie drugiego gracza: ")
 
-        player1.setup()
-        player2.setup()
+        print()
+        print(name_player_1 + "!")
+        player1.setup(player1)
+
+        print()
+        print(name_player_2 + "!")
+        player2.setup(player2)
+
 
 
         # player1.game_field = [[' .', ' .', ' .', ' 3', ' 4', ' 5', ' .', ' .', ' .', ' x'],
@@ -677,16 +674,16 @@ class Okrety_gra:
         game_over = False
         while(not game_over):
             os.system('cls')
-            print("Gracz 1.")
-            player1.print_shoting_field()
+            print(name_player_1)
+            Okrety_int.print_shoting_field(Okrety_int, player1)
             while(self.Shot(self,player1)):
 
-                player1.print_shoting_field()
+                Okrety_int.print_shoting_field(Okrety_int, player1)
                 n_player1_hits += 1
 
                 if(n_player1_hits == 20):
                     game_over = True
-                    print("Wygrywa Gracz 1.")
+                    print("Wygrywa", name_player_1, "Gratulacje")
                     break
 
                 continue
@@ -695,16 +692,16 @@ class Okrety_gra:
                 break
 
             os.system('cls')
-            print("Gracz 2.")
-            player2.print_shoting_field()
+            print(name_player_2)
+            Okrety_int.print_shoting_field(Okrety_int, player2)
             while(self.Shot(self,player2)):
 
-                player2.print_shoting_field()
+                Okrety_int.print_shoting_field(Okrety_int, player2)
                 n_player2_hits += 1
 
                 if(n_player2_hits == 20):
                     game_over = True
-                    print("Wygrywa Gracz 2.")
+                    print("Wygrywa", name_player_2, "Gratulacje")
                     break
                 continue
 
