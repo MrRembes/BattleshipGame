@@ -5,7 +5,7 @@ class Okrety_int:
     def print_line(self):
         print('-------------------------------')
 
-    # Wtpisanie pola do strzelania
+    # Wpisanie pola do strzelania
     def print_shoting_field(self, player):
         for i in range(10):
             Okrety_int.print_line(Okrety_int)
@@ -653,24 +653,12 @@ class Okrety_gra:
         print(name_player_1 + "!")
         player1.setup(player1)
 
+        os.system('cls')
+        
         print()
         print(name_player_2 + "!")
         player2.setup(player2)
 
-
-
-        # player1.game_field = [[' .', ' .', ' .', ' 3', ' 4', ' 5', ' .', ' .', ' .', ' x'],
-        #                       [' .', ' x', ' .', ' .', ' .', ' .', ' .', ' x', ' .', ' x'],
-        #                       [' .', ' .', ' .', ' .', ' x', ' .', ' .', ' x', ' .', ' x'],
-        #                       [' .', ' .', ' .', ' .', ' .', ' .', ' .', ' .', ' .', ' .'],
-        #                       [' x', ' x', ' .', ' .', ' .', ' .', ' .', ' .', ' x', ' .'],
-        #                       [' .', ' .', ' .', ' .', ' x', ' x', ' .', ' .', ' .', ' .'],
-        #                       ['60', '61', '62', ' .', ' .', ' .', ' .', '67', '68', '69'],
-        #                       ['70', '71', '72', '73', ' .', ' .', ' .', ' .', ' .', '79'],
-        #                       [' .', ' .', ' .', ' .', ' .', ' x', ' x', ' x', ' .', ' .'],
-        #                       [' x', ' x', ' x', ' x', ' .', ' .', ' .', ' .', ' .', ' x']]
-        
-        # Dopóki liczba trafień nie wynosi 20 gra jest kontynuowana
         game_over = False
         while(not game_over):
             os.system('cls')
