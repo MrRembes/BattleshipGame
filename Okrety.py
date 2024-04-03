@@ -693,6 +693,8 @@ class Okrety_gra:
                     break
                 continue
 
+
 gra = Okrety_gra
 
 gra.Play(gra)
+k=input("Wciśnij dowolny klawisz aby zakończyć.")  
