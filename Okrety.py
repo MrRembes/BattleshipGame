@@ -697,4 +697,5 @@ class Okrety_gra:
 gra = Okrety_gra
 
 gra.Play(gra)
-k=input("Wciśnij dowolny klawisz aby zakończyć.")  
+k=input("Wciśnij dowolny klawisz 2 razy aby zakończyć.")  
+k=input("Wciśnij dowolny klawisz 1 raz aby zakończyć.")  
